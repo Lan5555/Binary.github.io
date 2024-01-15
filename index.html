@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <style>
+        #firstbtn {color: green;
+            background-color: aqua;
+            border-radius: 17px; 
+            border: none;  
+            box-shadow: 3px 4px black;         
+        }
+        #binary{
+            border-radius: 15px;
+        }
+        #result {
+            color: red;
+        }
+        #octal{
+            color:brown; 
+            border-radius: 12px;
+        }
+        #secondbtn{
+            background-color: lightblue;
+            border-radius: 6px;
+            box-shadow: 4px 5px black;
+            border: none;
+
+        }
+       #result2 {
+        color: red;
+       }
+    </style>
+    <form id="Calculator" onsubmit="Binary(); return false;">
+    <!-- <div class="container">Input</div> -->
+    <h1>Binary Calculator</h1>
+    <input type="number" id="binary" placeholder="Enter Number" required>
+    <br><button type="submit" id = "firstbtn">Answer</button>
+    </form>
+    <p id = "result"></p>
+
+    <form id = "second" onsubmit="Octal(); return false;">
+    <h3>Octal converter</h3>
+    <input type="number" id = "octal" placeholder="Enter number" required><br>
+    <button type="submit" id = "secondbtn">Answer</button>
+    </form>
+    <p id = "result2"></p>
+
+
+    <script>
+    function Binary() {
+    let num = document.getElementById("binary").value;
+    let i = 2;
+    let Answer = "";
+    let finalAnswer = "";
+    
+    while (num > 0) {
+        let remainder = num % i;
+        Answer += remainder.toString();
+        num = Math.floor(num / i);
+    }
+
+    for (let a = Answer.length - 1; a >= 0; a--) { 
+        finalAnswer += Answer[a];
+    }
+
+    document.getElementById("result").innerHTML = "The answer is: " + finalAnswer;
+
+
+}
+    function Octal(){
+    let num2 = document.getElementById("octal").value;
+    let j = 8;
+    let Answer2 = "";
+    let finalAnswer2 = "";
+    
+    while (num2 > 0) {
+        let remainder2 = num2 % j;
+        Answer2 += remainder2.toString();
+        num2 = Math.floor(num2 / j);
+    }
+
+    for (let b = Answer2.length - 1; b >= 0; b--) { 
+        finalAnswer2 += Answer2[b];
+    }
+
+    document.getElementById("result2").innerHTML = "The answer is: " + finalAnswer2;
+    }
+    </script>
+</body>
+</html>
